@@ -1,31 +1,31 @@
 {
-    "name": "codexten/omnipay-cashfree",
-    "type": "library",
-    "description": "cashfree driver for the Omnipay PHP payment processing library",
-    "keywords": [
-        "gateway",
-        "merchant",
-        "omnipay",
-        "pay",
-        "payment",
-        "purchase",
-        "cashfree"
-    ],
-
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": { "Omnipay\\Cashfree\\" : "src/" }
-    },
-    "require": {
-         "php": ">=5.4"
-    },
-    "require-dev": {
-        "omnipay/tests": "dev-master"
-    },
-    "suggests" : {
-        "omnipay/common": "~2.0"
-    },
-"extra": {
+  "name": "codexten/omnipay-cashfree",
+  "type": "library",
+  "description": "cashfree driver for the Omnipay PHP payment processing library",
+  "keywords": [
+    "gateway",
+    "merchant",
+    "omnipay",
+    "pay",
+    "payment",
+    "purchase",
+    "cashfree"
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Omnipay\\Cashfree\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.4",
+    "omnipay/common": "~2.0",
+    "codexten/yii-core": "~2.0.0"
+  },
+  "require-dev": {
+    "omnipay/tests": "dev-master"
+  },
+  "extra": {
     "branch-alias": {
       "dev-master": "1.0.x-dev"
     }
