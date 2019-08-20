@@ -4,6 +4,7 @@ namespace Omnipay\Cashfree\Message;
 
 /**
  * Class CompletePurchaseRequest
+ *
  * @package Omnipay\Cashfree\Message
  */
 class CompletePurchaseRequest extends AbstractRequest
@@ -15,15 +16,16 @@ class CompletePurchaseRequest extends AbstractRequest
     {
         $data = parent::getData();
 
-        $this->validate('transactionReference');
+        $this->validate('orderId');
+        $data['orderId'] = $this->getOrderId();
 
-        $data['payment_id'] = $this->getTransactionReference();
 
         return $data;
     }
 
     /**
      * @param mixed $data
+     *
      * @return CompletePurchaseResponse
      */
     public function sendData($data)
@@ -32,6 +34,17 @@ class CompletePurchaseRequest extends AbstractRequest
         $jsonResponse = $this->sendRequest($httpRequest);
 
         return $this->response = new CompletePurchaseResponse($this, $jsonResponse);
+    }
+
+
+    public function setOrderId($value)
+    {
+        return $this->setParameter('orderId', $value);
+    }
+
+    public function getOrderId()
+    {
+        return $this->getParameter('orderId');
     }
 
 }

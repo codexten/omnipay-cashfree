@@ -25,7 +25,7 @@ class PurchaseRequest extends AbstractRequest
         $this->validate('customerPhone');
         $this->validate('customerEmail');
         $this->validate('returnUrl');
-        $this->validate('notifyUrl');
+//        $this->validate('notifyUrl');
 
         $data['orderId'] = $this->getOrderId();
         $data['orderAmount'] = $this->getAmount();

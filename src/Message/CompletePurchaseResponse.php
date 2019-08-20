@@ -29,6 +29,10 @@ class CompletePurchaseResponse extends Response
      */
     public function getTransactionStatus()
     {
+        echo '<pre>';
+        var_dump($this->data);
+        echo '</pre>';
+        exit;
         if (isset($this->data['payment']['status']) && 'Credit' == $this->data['payment']['status']) {
             return static::STATUS_COMPLETED;
         }

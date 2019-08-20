@@ -2,6 +2,8 @@
 
 namespace Omnipay\Cashfree;
 
+use Omnipay\Cashfree\Message\CompletePurchaseRequest;
+use Omnipay\Cashfree\Message\PurchaseRequest;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\AbstractRequest;
 use Omnipay\Common\Message\RequestInterface;
@@ -14,7 +16,6 @@ use Omnipay\Common\Message\RequestInterface;
  * @method RequestInterface authorize(array $options = [])
  * @method RequestInterface completeAuthorize(array $options = [])
  * @method RequestInterface capture(array $options = [])
- * @method RequestInterface completePurchase(array $options = [])
  * @method RequestInterface refund(array $options = [])
  * @method RequestInterface void(array $options = [])
  * @method RequestInterface createCard(array $options = [])
@@ -62,7 +63,7 @@ class Gateway extends AbstractGateway
 
     public function setSecretKey($value)
     {
-        return $this->setParameter('secretKey',$value);
+        return $this->setParameter('secretKey', $value);
     }
     //    /**
 //     * @return mixed
@@ -125,19 +126,19 @@ class Gateway extends AbstractGateway
      */
     public function purchase(array $parameters = [])
     {
-        return $this->createRequest('\Omnipay\Cashfree\Message\PurchaseRequest', $parameters);
+        return $this->createRequest(PurchaseRequest::class, $parameters);
     }
-//
-//    /**
-//     * @param array $parameters
-//     *
-//     * @return \Omnipay\Common\Message\AbstractRequest
-//     */
-//    public function completePurchase(array $parameters = [])
-//    {
-//        return $this->createRequest('\Omnipay\Cashfree\Message\CompletePurchaseRequest', $parameters);
-//    }
-//
+
+    /**
+     * @param array $parameters
+     *
+     * @return AbstractRequest
+     */
+    public function completePurchase(array $parameters = [])
+    {
+        return $this->createRequest(CompletePurchaseRequest::class, $parameters);
+    }
+
 //    /**
 //     * @param array $parameters
 //     *
